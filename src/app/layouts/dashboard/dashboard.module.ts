@@ -6,11 +6,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { UsersModule } from './pages/users/users.module';
-import { ProductsModule } from './pages/products/products.module';
-import { BuyersModule } from './pages/buyers/buyers.module';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { PipesModule } from './pages/pipes/pipes.module';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -24,11 +23,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatToolbarModule,
     MatIconModule,
     UsersModule,
-    ProductsModule,
-    BuyersModule,
     CategoriesModule,
     PipesModule,
-    MatDialogModule
+    MatDialogModule,
+    SharedModule
   ],
   exports:[DashboardComponent]
 })

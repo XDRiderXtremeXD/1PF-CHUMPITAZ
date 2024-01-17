@@ -37,7 +37,6 @@ import { DialogEditStudent } from './components/dialog-form-edit/dialog-form-edi
     MatDialogContent,
     SharedModule,
     MatDialogModule,
-    SharedModule
   ],
   exports:[UsersComponent]
 })

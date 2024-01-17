@@ -20,7 +20,8 @@ import { TextSizeDirective } from './text-size.directive';
   exports:[
     FullNamePipe,
     ResaltadoDirective,
-    RepetirDirective
+    RepetirDirective,
+    TextSizeDirective,
   ]
 })
 export class SharedModule { }
