@@ -1,0 +1,9 @@
+
+<p [user]="user" color="red" appResaltado>{{user | fullName}}</p>
+
+<p appResaltado>{{today | date : 'long' }}</p>
+
+<p *appRepetir="10">{{today | date | uppercase}}</p>
+<p appResaltado>{{"Hola mundo" | uppercase}}</p>
+
+<p>{{price | currency: 'PEN'}}</p>

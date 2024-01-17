@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Deseas Eliminar Alumno?</h1>
+<div mat-dialog-content>{{data.user | fullName}}</div>
+<div mat-dialog-content>
+  <div class="grid">
+    <button class="col-6" mat-button mat-dialog-close>No</button>
+    <button class="col-6" mat-button mat-dialog-close cdkFocusInitial (click)="DeleteUser()">Si</button>
+  </div>
+</div>

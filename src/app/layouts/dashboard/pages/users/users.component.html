@@ -1,0 +1,54 @@
+
+
+<div class="mb-3">
+  <app-user-form (userSubmitted)="onUserSubmitted($event)"></app-user-form>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <!-- HEADER -->
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <!-- CELDA -->
+    <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="fullName">
+    <!-- HEADER -->
+    <th mat-header-cell *matHeaderCellDef> FullName </th>
+    <!-- CELDA -->
+    <td mat-cell *matCellDef="let user"> {{user.firstName + " " +user.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <!-- HEADER -->
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <!-- CELDA -->
+    <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="borrarAlumno">
+    <th mat-header-cell *matHeaderCellDef> Borrar </th>
+    <td mat-cell *matCellDef="let user">
+      <button mat-button color="primary"  (click)="ConfirmarEliminar(user,'0ms', '0ms')">
+        <mat-icon mat-icon color="warn" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="editarAlumno">
+    <th mat-header-cell *matHeaderCellDef> Editar </th>
+    <td mat-cell *matCellDef="let user">
+      <button mat-button color="primary" (click)="EditarAlumno(user)">
+        <mat-icon mat-icon color="primary" aria-hidden="false" aria-label="Example home icon" fontIcon="edit"></mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
