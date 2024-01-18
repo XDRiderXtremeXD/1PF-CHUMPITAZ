@@ -16,7 +16,7 @@ export class DialogDeleteStudent {
     @Inject(MAT_DIALOG_DATA) public data: { user: Student }) { }
 
   DeleteUser(): void {
-    this.userDelete.emit(this.data.user);
+    this.userDelete.emit();
     this.dialogRef.close(); // Cierra el diálogo después de emitir el evento
   }
 }

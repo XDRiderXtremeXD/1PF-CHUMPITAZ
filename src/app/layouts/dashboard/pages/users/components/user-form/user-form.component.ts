@@ -21,14 +21,22 @@ export class UserFormComponent {
       email: this.fb.control('', [Validators.required, Validators.email])
     })
   }
+
   OnSubmit(): void {
     if (this.userForm.valid) {
       this.userSubmitted.emit(this.userForm.value);
       this.userForm.reset();
+      // this.markControlsAsUntouched();
     }
     else
       alert("Formulario no enviado");
   }
+
+  // markControlsAsUntouched() {
+  //   Object.values(this.userForm.controls).forEach(control => {
+  //     control.markAsUntouched();
+  //   });
+  // }
 
   getErrors(formControlName: string): string | null | undefined {
     const errores = this.userForm.get(formControlName)?.errors;
