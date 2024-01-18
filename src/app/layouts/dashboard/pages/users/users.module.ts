@@ -13,6 +13,7 @@ import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, Ma
 import { DialogDeleteStudent } from './components/dialog-delete-student/dialog.component';
 import { SharedModule } from '../../../../shared/shared.module';
 import { DialogEditStudent } from './components/dialog-form-edit/dialog-form-edit.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DialogEditStudent } from './components/dialog-form-edit/dialog-form-edi
     MatDialogContent,
     SharedModule,
     MatDialogModule,
+    MatPaginatorModule
   ],
   exports:[UsersComponent]
 })

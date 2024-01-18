@@ -3,6 +3,7 @@
     <mat-form-field class="w-full">
       <mat-label>Nombre</mat-label>
       <input formControlName="firstName" matInput type="text">
+      <mat-error>{{getErrors('firstName')}}</mat-error>
     </mat-form-field>
   </div>
 
@@ -10,6 +11,7 @@
     <mat-form-field class="w-full">
       <mat-label>Apellido</mat-label>
       <input formControlName="lastName" matInput type="text">
+      <mat-error>{{getErrors('lastName')}}</mat-error>
     </mat-form-field>
   </div>
 
@@ -17,6 +19,7 @@
     <mat-form-field class="w-full">
       <mat-label>Email</mat-label>
       <input formControlName="email" matInput type="email">
+      <mat-error>{{getErrors('email')}}</mat-error>
     </mat-form-field>
   </div>
 

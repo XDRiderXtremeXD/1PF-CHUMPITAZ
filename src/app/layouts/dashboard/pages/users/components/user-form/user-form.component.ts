@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { stringValidator } from '../../../../../../utils/ValidatorsPersonalizados';
+import { FormBuilder, FormControlName, FormGroup, Validators, ValidationErrors } from '@angular/forms';
+import { StringErrores, stringValidator } from '../../../../../../utils/FuncionesValidatorsErrores';
 
 
 @Component({
@@ -14,7 +14,6 @@ export class UserFormComponent {
   @Output()
   userSubmitted = new EventEmitter();
 
-
   constructor(private fb: FormBuilder) {
     this.userForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required, stringValidator]),
@@ -27,17 +26,12 @@ export class UserFormComponent {
       this.userSubmitted.emit(this.userForm.value);
       this.userForm.reset();
     }
-    else {
-      /*let msgErrores="";
-      for (let clave in this.userForm.controls) {
-        if (this.userForm.controls.hasOwnProperty(clave)) {
-          if (this.userForm.controls[clave].errors != null)
-            msgErrores+=(clave)+" , ";
-        }
-      }*/
+    else
       alert("Formulario no enviado");
-    }
+  }
 
-
+  getErrors(formControlName: string): string | null | undefined {
+    const errores = this.userForm.get(formControlName)?.errors;
+    return StringErrores(errores);
   }
 }

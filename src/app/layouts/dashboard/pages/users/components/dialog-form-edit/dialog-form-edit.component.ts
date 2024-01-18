@@ -2,7 +2,7 @@ import { Component, EventEmitter, Inject, Output } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Student } from '../../models';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { stringValidator } from '../../../../../../utils/ValidatorsPersonalizados';
+import { StringErrores, stringValidator } from '../../../../../../utils/FuncionesValidatorsErrores';
 
 @Component({
   selector: 'app-dialog-form-edit',
@@ -33,5 +33,9 @@ export class DialogEditStudent {
       alert("Error:El nombre y apellido deben ser letras");
   }
 
+  getErrors(formControlName: string): string | null | undefined {
+    const errores = this.userFormEdit.get(formControlName)?.errors;
+    return StringErrores(errores);
+  }
 
 }
