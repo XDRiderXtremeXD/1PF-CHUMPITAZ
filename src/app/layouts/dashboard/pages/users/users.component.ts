@@ -7,6 +7,7 @@ import studentsData from './studentsData.json';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { DialogAlertsComponent } from './components/dialog-alerts/dialog-alerts.component';
 
 @Component({
   selector: 'app-users',
@@ -23,9 +24,9 @@ export class UsersComponent implements AfterViewInit {
   onUserSubmitted(ev: Student): void {
     if (!this.dataSource.data.some((element) => element.email === ev.email)) {
       this.dataSource.data = [...this.dataSource.data, { ...ev, id: new Date().getTime() }];
-      alert(`Usuario Agregado ${ev.firstName} ${ev.lastName}`);
+      this.Alerta(`Usuario Agregado ${ev.firstName} ${ev.lastName}`,'0ms', '0ms');
     } else {
-      alert("No se puede agregar un nuevo alumno con un email registrado");
+      this.Alerta(`No se puede agregar un nuevo alumno con un email registrado`,'0ms', '0ms');
     }
   }
 
@@ -47,6 +48,15 @@ export class UsersComponent implements AfterViewInit {
 
     dialogRef.componentInstance.userDelete.subscribe(() => {
       this.EliminarAlumno(user);
+    });
+  }
+
+  Alerta(mensaje: string, enterAnimationDuration: string, exitAnimationDuration: string): void {
+      this.dialog.open(DialogAlertsComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: { mensaje }
     });
   }
 

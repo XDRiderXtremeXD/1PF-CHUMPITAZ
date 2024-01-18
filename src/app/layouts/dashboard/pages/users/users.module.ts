@@ -14,13 +14,15 @@ import { DialogDeleteStudent } from './components/dialog-delete-student/dialog.c
 import { SharedModule } from '../../../../shared/shared.module';
 import { DialogEditStudent } from './components/dialog-form-edit/dialog-form-edit.component';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { DialogAlertsComponent } from './components/dialog-alerts/dialog-alerts.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     UserFormComponent,
     DialogDeleteStudent,
-    DialogEditStudent
+    DialogEditStudent,
+    DialogAlertsComponent
   ],
   imports: [
     CommonModule,

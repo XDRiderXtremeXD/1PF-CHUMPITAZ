@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControlName, FormGroup, Validators, ValidationErrors } from '@angular/forms';
 import { StringErrores, stringValidator } from '../../../../../../utils/FuncionesValidatorsErrores';
+import { DialogAlertsComponent } from '../dialog-alerts/dialog-alerts.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class UserFormComponent {
   @Output()
   userSubmitted = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,public dialog: MatDialog) {
     this.userForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required, stringValidator]),
       lastName: this.fb.control('', [Validators.required, stringValidator]),
@@ -28,10 +30,19 @@ export class UserFormComponent {
       this.userForm.reset();
       // this.markControlsAsUntouched();
     }
-    else
-      alert("Formulario no enviado");
+    else{
+      this.Alerta(`No se acepto el formulario por errores en los datos`,'0ms', '0ms');
+    }
   }
 
+  Alerta(mensaje: string, enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogAlertsComponent, {
+    width: '250px',
+    enterAnimationDuration,
+    exitAnimationDuration,
+    data: { mensaje }
+  });
+  }
   // markControlsAsUntouched() {
   //   Object.values(this.userForm.controls).forEach(control => {
   //     control.markAsUntouched();
