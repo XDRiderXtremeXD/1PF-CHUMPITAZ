@@ -1,12 +1,23 @@
-<mat-drawer-container class="dashboard-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" >
-    <p>Opciones</p>
+<mat-drawer-container class="dashboard-container" autosize >
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div class="flex flex-column">
+    <p class="font-bold flex align-items-center justify-content-center" style="color: white;">Gestion</p>
+  </div>
     @if (showFiller) {
     <p>Lorem, ipsum dolor sit amet consectetur.</p>
     }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
+    <!-- <button (click)="showFiller = !showFiller" mat-raised-button> -->
+    <div class="flex flex-column">
+      <button mat-raised-button color="primary" class="flex align-items-center justify-content-center  m-2">
+        Alumnos
+      </button>
+      <button  mat-raised-button  color="primary" class="flex align-items-center justify-content-center   m-2">
+        Cursos
+      </button>
+      <button  mat-raised-button  color="primary"  class="flex align-items-center justify-content-center  m-2" >
+        Inscripciones
+      </button>
+    </div>
   </mat-drawer>
 
   <!-- CONTENIDO -->
@@ -22,10 +33,10 @@
         <span [sizeText]="20" appTextSize>Control de Alumnos</span>
         <span class="example-spacer"></span>
         <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"> -->
-          <!-- <mat-icon>favorite</mat-icon> -->
+        <!-- <mat-icon>favorite</mat-icon> -->
         <!-- </button> -->
         <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"> -->
-          <!-- <mat-icon>share</mat-icon> -->
+        <!-- <mat-icon>share</mat-icon> -->
         <!-- </button> -->
       </mat-toolbar>
     </p>
