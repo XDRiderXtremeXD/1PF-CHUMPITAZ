@@ -1,7 +1,10 @@
 <div mat-dialog-content>
-<h1 [sizeText]="20" appTextSize mat-dialog-title>Mensaje:</h1>
-<div  mat-dialog-content>{{data.mensaje}}</div>
-  <div class="custom-dialog-actions" style="text-align: center;" >
+  <h1 [sizeText]="20" appTextSize mat-dialog-title>
+    <mat-icon [ngClass]="getIconName(data.icon)">{{ getIconName(data.icon) }}</mat-icon>
+    Mensaje:
+  </h1>
+  <div mat-dialog-content>{{ data.mensaje }}</div>
+  <div class="custom-dialog-actions" style="text-align: center;">
     <button mat-button mat-dialog-close>Ok</button>
   </div>
 </div>

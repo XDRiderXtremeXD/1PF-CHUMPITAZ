@@ -1,4 +1,4 @@
-<h1 [sizeText]="20" appTextSize mat-dialog-title class="col-12 justify-content-end">Edicion Nombre Apellido</h1>
+<h1 [sizeText]="20" appTextSize mat-dialog-title class="col-12 justify-content-end">Edicion Usuario</h1>
 <!-- <div mat-dialog-content>{{data.user | fullName}}</div>
 <div mat-dialog-actions> -->
 <div mat-dialog-content>
@@ -19,12 +19,30 @@
       </mat-form-field>
     </div>
 
+    <div class="col-6">
+      <mat-form-field class="w-full">
+        <mat-label>{{data.user.phone}}</mat-label>
+        <input formControlName="phone" matInput type="text">
+        <mat-error>{{getErrors('phone')}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field class="w-full">
+        <mat-label>{{data.user.role}}</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="Admin">ADMIN</mat-option>
+          <mat-option value="User" >USER</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
   </form>
 </div>
 
 <div mat-dialog-content>
   <div class="grid">
     <button class="col-6" mat-button mat-dialog-close>Cancelar</button>
-    <button class="col-6" mat-button mat-dialog-close cdkFocusInitial (click)="EditStudent()">Editar</button>
+    <button class="col-6" mat-button cdkFocusInitial (click)="EditStudent()">Editar</button>
   </div>
 </div>

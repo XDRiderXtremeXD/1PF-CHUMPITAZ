@@ -1,8 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormControlName, FormGroup, Validators, ValidationErrors } from '@angular/forms';
-import { StringErrores, stringValidator } from '../../../../../../utils/FuncionesValidatorsErrores';
-import { DialogAlertsComponent } from '../dialog-alerts/dialog-alerts.component';
-import { MatDialog } from '@angular/material/dialog';
+import { StringErrores, stringNumber, stringValidator } from '../../../../../../utils/FuncionesValidatorsErrores';
+import { AlertaService } from '../dialog-alerts/dialog-alerts-service.service';
 
 
 @Component({
@@ -16,11 +15,13 @@ export class UserFormComponent {
   @Output()
   userSubmitted = new EventEmitter();
 
-  constructor(private fb: FormBuilder,public dialog: MatDialog) {
+  constructor(private fb: FormBuilder, private alertaService: AlertaService) {
     this.userForm = this.fb.group({
       firstName: this.fb.control('', [Validators.required, stringValidator]),
       lastName: this.fb.control('', [Validators.required, stringValidator]),
-      email: this.fb.control('', [Validators.required, Validators.email])
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      phone: this.fb.control('', [Validators.required, Validators.min(6),stringNumber]),
+      role: this.fb.control('', [Validators.required]),
     })
   }
 
@@ -30,19 +31,11 @@ export class UserFormComponent {
       this.userForm.reset();
       // this.markControlsAsUntouched();
     }
-    else{
-      this.Alerta(`No se acepto el formulario por errores en los datos`,'0ms', '0ms');
+    else {
+      this.alertaService.Alerta(`No se acepto el formulario por errores en los datos`,'warning', '0ms', '0ms');
     }
   }
 
-  Alerta(mensaje: string, enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAlertsComponent, {
-    width: '250px',
-    enterAnimationDuration,
-    exitAnimationDuration,
-    data: { mensaje }
-  });
-  }
   // markControlsAsUntouched() {
   //   Object.values(this.userForm.controls).forEach(control => {
   //     control.markAsUntouched();

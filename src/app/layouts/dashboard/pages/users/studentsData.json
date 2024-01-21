@@ -3,102 +3,136 @@
     "id": 1,
     "firstName": "Naruto",
     "lastName": "Uzumaki",
-    "email": "naru@mail.com"
+    "email": "naru@mail.com",
+    "phone": "1234567890",
+    "role": "User"
   },
   {
     "id": 2,
     "firstName": "Sasuke",
     "lastName": "Uchiha",
-    "email": "sasuke@mail.com"
+    "email": "sasuke@mail.com",
+    "phone": "9876543210",
+    "role": "Admin"
   },
   {
     "id": 3,
     "firstName": "Sakura",
     "lastName": "Haruno",
-    "email": "sakura@mail.com"
+    "email": "sakura@mail.com",
+    "phone": "5555555555",
+    "role": "User"
   },
   {
     "id": 4,
     "firstName": "Kakashi",
     "lastName": "Hatake",
-    "email": "kakashi@mail.com"
+    "email": "kakashi@mail.com",
+    "phone": "1111111111",
+    "role": "Admin"
   },
   {
     "id": 5,
     "firstName": "Hinata",
     "lastName": "Hyuga",
-    "email": "hinata@mail.com"
+    "email": "hinata@mail.com",
+    "phone": "9999999999",
+    "role": "User"
   },
   {
     "id": 6,
     "firstName": "Shikamaru",
     "lastName": "Nara",
-    "email": "shikamaru@mail.com"
+    "email": "shikamaru@mail.com",
+    "phone": "6666666666",
+    "role": "User"
   },
   {
     "id": 7,
     "firstName": "Ino",
     "lastName": "Yamanaka",
-    "email": "ino@mail.com"
+    "email": "ino@mail.com",
+    "phone": "7777777777",
+    "role": "Admin"
   },
   {
     "id": 8,
     "firstName": "Choji",
     "lastName": "Akimichi",
-    "email": "choji@mail.com"
+    "email": "choji@mail.com",
+    "phone": "8888888888",
+    "role": "User"
   },
   {
     "id": 9,
     "firstName": "Neji",
     "lastName": "Hyuga",
-    "email": "neji@mail.com"
+    "email": "neji@mail.com",
+    "phone": "3333333333",
+    "role": "Admin"
   },
   {
     "id": 10,
     "firstName": "Rock",
     "lastName": "Lee",
-    "email": "rock@mail.com"
+    "email": "rock@mail.com",
+    "phone": "4444444444",
+    "role": "User"
   },
   {
     "id": 11,
     "firstName": "Tenten",
     "lastName": "Tenten",
-    "email": "tenten@mail.com"
+    "email": "tenten@mail.com",
+    "phone": "2222222222",
+    "role": "Admin"
   },
   {
     "id": 12,
     "firstName": "Kiba",
     "lastName": "Inuzuka",
-    "email": "kiba@mail.com"
+    "email": "kiba@mail.com",
+    "phone": "7777888899",
+    "role": "User"
   },
   {
     "id": 13,
     "firstName": "Hinata",
     "lastName": "Kurenai",
-    "email": "kurenai@mail.com"
+    "email": "kurenai@mail.com",
+    "phone": "1234432111",
+    "role": "Admin"
   },
   {
     "id": 14,
     "firstName": "Gaara",
     "lastName": "Gaara",
-    "email": "gaara@mail.com"
+    "email": "gaara@mail.com",
+    "phone": "9090909090",
+    "role": "User"
   },
   {
     "id": 15,
     "firstName": "Temari",
     "lastName": "Temari",
-    "email": "temari@mail.com"
+    "email": "temari@mail.com",
+    "phone": "9191919191",
+    "role": "Admin"
   },
   {
     "id": 16,
     "firstName": "Kankuro",
     "lastName": "Kankuro",
-    "email": "kankuro@mail.com"
+    "email": "kankuro@mail.com",
+    "phone": "9292929292",
+    "role": "User"
   },
   {
     "id": 17,
     "firstName": "Jiraiya",
     "lastName": "Jiraiya",
-    "email": "jiraiya@mail.com"
+    "email": "jiraiya@mail.com",
+    "phone": "9393939393",
+    "role": "User"
   }
 ]

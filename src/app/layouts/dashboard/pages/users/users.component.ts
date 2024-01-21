@@ -7,7 +7,7 @@ import studentsData from './studentsData.json';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { DialogAlertsComponent } from './components/dialog-alerts/dialog-alerts.component';
+import { AlertaService } from './components/dialog-alerts/dialog-alerts-service.service';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +15,7 @@ import { DialogAlertsComponent } from './components/dialog-alerts/dialog-alerts.
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'borrarAlumno', 'editarAlumno'];
+  displayedColumns: string[] = ['id', 'fullName', 'email','phone','role', 'acciones'];
   dataSource: MatTableDataSource<Student>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,9 +24,9 @@ export class UsersComponent implements AfterViewInit {
   onUserSubmitted(ev: Student): void {
     if (!this.dataSource.data.some((element) => element.email === ev.email)) {
       this.dataSource.data = [...this.dataSource.data, { ...ev, id: new Date().getTime() }];
-      this.Alerta(`Usuario Agregado ${ev.firstName} ${ev.lastName}`,'0ms', '0ms');
+      this.alertaService.Alerta(`Usuario Agregado ${ev.firstName} ${ev.lastName}`,'success','0ms', '0ms');
     } else {
-      this.Alerta(`No se puede agregar un nuevo alumno con un email registrado`,'0ms', '0ms');
+      this.alertaService.Alerta(`No se puede agregar un nuevo alumno con un email registrado`,'warning','0ms', '0ms');
     }
   }
 
@@ -34,7 +34,7 @@ export class UsersComponent implements AfterViewInit {
     this.dataSource.data = this.dataSource.data.filter((userData) => userData.email !== user.email);
   }
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private alertaService: AlertaService) {
     this.dataSource = new MatTableDataSource(studentsData);
   }
 
@@ -51,15 +51,6 @@ export class UsersComponent implements AfterViewInit {
     });
   }
 
-  Alerta(mensaje: string, enterAnimationDuration: string, exitAnimationDuration: string): void {
-      this.dialog.open(DialogAlertsComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-      data: { mensaje }
-    });
-  }
-
   EditarAlumno(user: Student): void {
     const dialogRef = this.dialog.open(DialogEditStudent, {
       data: { user }
@@ -68,10 +59,13 @@ export class UsersComponent implements AfterViewInit {
     dialogRef.componentInstance.editStudent.subscribe((editStudent: Student) => {
       const indice = this.dataSource.data.findIndex((userData) => userData.email === user.email);
       const array = [...this.dataSource.data];
-      array[indice].firstName = editStudent.firstName;
-      array[indice].lastName = editStudent.lastName;
+      array[indice].firstName = editStudent.firstName!==""?editStudent.firstName:array[indice].firstName;
+      array[indice].lastName = editStudent.lastName!==""?editStudent.lastName:array[indice].lastName;
+      array[indice].role = editStudent.role!==""?editStudent.role:array[indice].role;
+      array[indice].phone = editStudent.phone!==""?editStudent.phone:array[indice].phone;
       this.dataSource.data = [];
       this.dataSource.data = [...array];
+      this.alertaService.Alerta("Se edito el usuario",'success','0','0');
     });
   }
 

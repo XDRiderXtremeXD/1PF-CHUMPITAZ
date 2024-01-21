@@ -23,6 +23,24 @@
     </mat-form-field>
   </div>
 
+  <div class="col-6">
+    <mat-form-field class="w-full">
+      <mat-label>Phone</mat-label>
+      <input formControlName="phone" matInput type="text">
+      <mat-error>{{getErrors('phone')}}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="col-6">
+    <mat-form-field class="w-full">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        <mat-option value="Admin">ADMIN</mat-option>
+        <mat-option value="User" >USER</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
   <div class="col-12 flex justify-content-end">
     <button mat-flat-button color="primary">Agregar Alumno</button>
   </div>
